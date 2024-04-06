@@ -151,6 +151,7 @@ def crisisV2_battleFinish():
     rune = read_json(
         f"{CRISIS_V2_JSON_BASE_PATH}{selected_crisis}.json", encoding="utf-8"
     )
+    runeIds = []
 
     nodes = {}
     for slot in rune["info"]["mapDetailDataMap"][mapId]["nodeDataMap"]:
@@ -206,9 +207,10 @@ def crisisV2_battleFinish():
         nodeData = rune["info"]["mapDetailDataMap"][mapId]["nodeDataMap"][slot]
         if "runeId" in nodeData:
             runeId = rune["info"]["mapDetailDataMap"][mapId]["nodeDataMap"][slot]["runeId"]
+            runeIds.append(runeId)
             runeData = rune["info"]["mapDetailDataMap"][mapId]["runeDataMap"][runeId]
             scoreCurrent[runeData["dimension"]] += runeData["score"]
-    return {"result": 0, "mapId": mapId, "runeSlots": runeSlots, "isNewRecord": False, "scoreRecord": [0, 0, 0, 0, 0, 0], "scoreCurrent": scoreCurrent, "runeCount": [0, 0], "commentNew": [], "commentOld": [], "ts": 1700000000, "playerDataDelta": {"modified": {}, "deleted": {}}}
+    return {"result": 0, "mapId": mapId, "runeSlots": runeSlots, "runeIds": runeIds, "isNewRecord": False, "scoreRecord": [0, 0, 0, 0, 0, 0], "scoreCurrent": scoreCurrent, "runeCount": [0, 0], "commentNew": [], "commentOld": [], "ts": 1700000000, "playerDataDelta": {"modified": {}, "deleted": {}}}
 
 def crisisV2_getSnapshot():
     return {
