@@ -1,6 +1,6 @@
 from flask import request
 
-from constants import RLV2_JSON_PATH, USER_JSON_PATH, RL_TABLE_URL, CONFIG_PATH, RLV2_SETTINGS_PATH, RLV2_STATIC_JSON_PATH
+from constants import RLV2_JSON_PATH, USER_JSON_PATH, RL_TABLE_URL, CONFIG_PATH, RLV2_SETTINGS_PATH, RLV2_USER_SETTINGS_PATH, RLV2_STATIC_JSON_PATH
 from utils import read_json, write_json, decrypt_battle_data
 from core.function.update import updateData
 from copy import deepcopy
@@ -11,11 +11,19 @@ def rlv2GiveUpGame():
     return {"result": "ok", "playerDataDelta": {"modified": {"rlv2": {"current": {"player": None, "record": None, "map": None, "troop": None, "inventory": None, "game": None, "buff": None, "module": None}}}, "deleted": {}}}
 
 
-def getChars():
+def getChars(use_user_defaults=False):
     user_data = read_json(USER_JSON_PATH)
     chars = [
         user_data["user"]["troop"]["chars"][i] for i in user_data["user"]["troop"]["chars"]
     ]
+    if use_user_defaults:
+        rlv2_user_settings = read_json(RLV2_USER_SETTINGS_PATH)
+        initialChars = set(rlv2_user_settings["initialChars"])
+        chars_tmp = []
+        for char in chars:
+            if char["charId"] in initialChars:
+                chars_tmp.append(char)
+        chars = chars_tmp
     for i in range(len(chars)):
         char = chars[i]
         if char["evolvePhase"] == 2:
@@ -206,7 +214,7 @@ def rlv2CreateGame():
     if config["rlv2Config"]["allChars"]:
         theme_id = theme.split('_')[-1]
         ticket = f"rogue_{theme_id}_recruit_ticket_all"
-        chars = getChars()
+        chars = getChars(use_user_defaults=True)
         for i, char in enumerate(chars):
             ticket_id = f"t_{i}"
             char_id = str(i+1)
