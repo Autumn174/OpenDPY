@@ -96,3 +96,7 @@ Customize the support unit list by changing the unit info in `config/assist.json
 Set `"userConfig"` -> `"restorePreviousStates"` -> `"squadsAndFavs"` in `config/config.json` to `true` to keep previous configurations for characters and squads.
 
 Set `"userConfig"` -> `"restorePreviousStates"` -> `"ui"` in `config/config.json` to `true` to keep previous configurations for UI.
+
+## Warning!
+
+If you are using your own hook scripts to redirect traffic to ODPY instead of ODPY's frida hook, many features that relies on hooking might be broken, e.g. 3x speed, pause-and-deploy, hp display, forever activity, mods etc.
