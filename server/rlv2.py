@@ -89,6 +89,8 @@ def rlv2CreateGame():
 
     theme_id = theme.split('_')[-1]
     ending = f"ro{theme_id}_ending_1"
+    if theme == "rogue_1":
+        ending = "ro_ending_1"
 
     rlv2 = {
         "player": {
