@@ -213,7 +213,7 @@ def rlv2CreateGame():
     # too large, do not send it every time
     rlv2_static = {}
     config = read_json(CONFIG_PATH)
-    if config["rlv2Config"]["allChars"]:
+    if config["rlv2Config"]["userInitialChars"]:
         theme_id = theme.split('_')[-1]
         ticket = f"rogue_{theme_id}_recruit_ticket_all"
         chars = getChars(use_user_defaults=True)
@@ -327,7 +327,7 @@ def getNextTicketIndex(rlv2):
     for e in rlv2["inventory"]["recruit"]:
         d.add(int(e[2:]))
     config = read_json(CONFIG_PATH)
-    if not config["rlv2Config"]["allChars"]:
+    if not config["rlv2Config"]["userInitialChars"]:
         i = 0
     else:
         i = 10000-1
@@ -341,7 +341,7 @@ def rlv2ChooseInitialRecruitSet():
     rlv2["player"]["pending"].pop(0)
 
     config = read_json(CONFIG_PATH)
-    if not config["rlv2Config"]["allChars"]:
+    if not config["rlv2Config"]["userInitialChars"]:
         for i in range(3):
             ticket_id = getNextTicketIndex(rlv2)
             addTicket(rlv2, ticket_id)
@@ -417,7 +417,7 @@ def rlv2ActiveRecruitTicket():
 
 def getNextCharId(rlv2):
     config = read_json(CONFIG_PATH)
-    if not config["rlv2Config"]["allChars"]:
+    if not config["rlv2Config"]["userInitialChars"]:
         i = 1
     else:
         i = 10000

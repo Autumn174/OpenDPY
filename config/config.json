@@ -95,7 +95,7 @@
         "season": "tower_season_4"
     },
     "rlv2Config": {
-        "allChars": true
+        "userInitialChars": true
     },
     "battleReplayConfig": {
         "anonymous": true
