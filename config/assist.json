@@ -60,6 +60,11 @@
         "currentEquip": "uniequip_002_gvial2"
     },
     {
+        "charId": "char_4116_blkkgt",
+        "skillIndex": 2,
+        "currentEquip": "uniequip_002_blkkgt"
+    },
+    {
         "charId": "char_1014_nearl2",
         "skillIndex": 1,
         "currentEquip": "uniequip_003_nearl2"
@@ -125,11 +130,6 @@
         "currentEquip": null
     },
     {
-        "charId": "char_4116_blkkgt",
-        "skillIndex": 2,
-        "currentEquip": "uniequip_002_blkkgt"
-    },
-    {
         "charId": "char_017_huang",
         "skillIndex": 1,
         "currentEquip": "uniequip_002_huang"
@@ -185,13 +185,23 @@
         "currentEquip": "uniequip_002_reed2"
     },
     {
-        "charId": "char_1029_yato2",
+        "charId": "char_245_cello",
         "skillIndex": 2,
-        "currentEquip": "uniequip_002_yato2"
+        "currentEquip": null
     },
     {
         "charId": "char_4123_ela",
         "skillIndex": 2,
         "currentEquip": "uniequip_002_ela"
+    },
+    {
+        "charId": "char_1023_ghost2",
+        "skillIndex": 1,
+        "currentEquip": "uniequip_002_ghost2"
+    },
+    {
+        "charId": "char_1029_yato2",
+        "skillIndex": 2,
+        "currentEquip": "uniequip_002_yato2"
     }
 ]
