@@ -21,6 +21,8 @@ skill_id_skill_name = {}
 for j in skill_table:
     skill_id_skill_name[j] = skill_table[j]["levels"][0]["name"]
 
+skill_id_skill_name[None] = None
+
 with open("data/user/battleReplays.json", encoding="utf-8") as f:
     battle_replay = json.load(f)
 
