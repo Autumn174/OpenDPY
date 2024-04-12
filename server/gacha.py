@@ -375,7 +375,10 @@ def doWishes(num, poolId):
                 char_id = random.choice(rankUpChars[rank])
                 if numWishUp != -1:
                     if rank == 5:
-                        numWishUp = -1
+                        if pool_is_single and numWishUp < 150:
+                            numWishUp = 0
+                        else:
+                            numWishUp = -1
                     else:
                         numWishUp += 1
             else:
