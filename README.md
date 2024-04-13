@@ -42,6 +42,8 @@ Discord: [https://discord.com/invite/SmuB88RR5W](https://discord.com/invite/SmuB
 
 [https://ak-build.bluestacks.com/public/app-player/windows/nxt/5.21.103.1001/03f47a014441168cefa3c6fe6bc5c21e/FullInstaller/x64/BlueStacksFullInstaller_5.21.103.1001_amd64_native.exe](https://ak-build.bluestacks.com/public/app-player/windows/nxt/5.21.103.1001/03f47a014441168cefa3c6fe6bc5c21e/FullInstaller/x64/BlueStacksFullInstaller_5.21.103.1001_amd64_native.exe)
 
+(for global) Please use Android 7 32-bit (x86) emulator (default installation), armeabi-v7a game.
+
 1. Enable adb connection in BlueStacks 5's settings.
 2. Open `C:\ProgramData\BlueStacks_nxt\bluestacks.conf` and set `bst.feature.rooting`, `bst.instance.Nougat32.enable_root_access` (and `bst.instance.Nougat64.enable_root_access` if exists) to `"1"` so as to enable root permission.
 3. Start BlueStacks 5.
