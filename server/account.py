@@ -601,6 +601,15 @@ def accountSyncData():
             if j not in player_data["user"]["activity"][i]:
                 player_data["user"]["activity"][i][j] = {}
 
+    april_fool = "act3fun"
+    for i in activity_table["basicInfo"]:
+        if activity_table["basicInfo"][i]["type"] == "APRIL_FOOL":
+            if activity_table["basicInfo"][april_fool]["startTime"] < activity_table["basicInfo"][i]["startTime"]:
+                april_fool = i
+    player_data["user"]["activity"]["APRIL_FOOL"][april_fool] = {
+        "isOpen": True
+    }
+
     player_data["user"]["medal"] = {"medals": {}}
     medal_table = updateData(MEDAL_TABLE_URL)
     for i in medal_table["medalList"]:

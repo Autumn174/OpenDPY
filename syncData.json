@@ -140,11 +140,7 @@
                     }
                 }
             },
-            "APRIL_FOOL": {
-                "act5fun": {
-                    "isOpen": true
-                }
-            }
+            "APRIL_FOOL": {}
         },
         "status": {
             "nickName": "Doctorate",
